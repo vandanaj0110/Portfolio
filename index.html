@@ -1,137 +1,684 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vandana J - 4th Year CSE Student</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	<!--/ /---- Put your name in the title of the page ----/ /-->
-	<title>Vandana J Portfolio</title>
-	
-	<!--/ /-------- Normalize CSS --------/ /-->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-	
-	<!--/ /-------- Google Fonts --------/ /-->
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	
-	<!--/ /-------- Font Awesome --------/ /-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-	<!--/ /-------- Your Styles --------/ /-->
-	<link href="styles.css" rel="stylesheet">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-	<!--/ /---Put a short description for your site below. 20 words or less---/ /-->
-	<meta description="Portfolio showcasing web development projects, design skills, and contact information for collaboration opportunities.">
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-	<!--/ /-------- Needed For Mobile Devices --------/ /-->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
 
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00d4ff, #7b68ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #00d4ff, #7b68ee);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #b0b0b0;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #d0d0d0;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00d4ff, #7b68ee);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #00d4ff;
+        }
+
+        .btn-secondary:hover {
+            background: #00d4ff;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ffffff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00d4ff;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #d0d0d0;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 100px 0;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .experience-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #00d4ff;
+        }
+
+        .experience-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #7b68ee;
+        }
+
+        .experience-card .duration {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Research Section */
+        .research {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .research-content {
+            max-width: 900px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .research-paper {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .research-paper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .research-paper h3 {
+            color: #00d4ff;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .conference {
+            color: #7b68ee;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .paper-description {
+            color: #d0d0d0;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00d4ff;
+        }
+
+        .project-card p {
+            color: #d0d0d0;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(123, 104, 238, 0.2);
+            color: #7b68ee;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00d4ff;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #00d4ff, #7b68ee);
+            border-radius: 4px;
+        }
+    </style>
 </head>
-
 <body>
-	
-    <header class="primary">
-        <div class="wrapper">
-            
-			<div class="logo-container">
-				<h1>Vandana J<br>Portfolio</h1>
-				<a href="index.html"><img src="https://dummyimage.com/175/c4c4c4/fff&text=logo" alt="logo image" id="logo"></a>
-			</div>
-            
-			<nav id="mainnav">
-            	<ul>
-                	<li><a href="#work">Projects</a></li>
-                    <li><a href="#about-contact">About</a></li>
-                    <li><a href="#about-contact">Contact</a></li>
-                </ul>
-            </nav>
-            
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Vandana J</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="https://github.com/vandanaj0110">GitHub</a></li>
+            </ul>
         </div>
-        
-    </header>
-    
-    <section id="work">
-   		<div class="wrapper">
-        	<h2>Explore My Featured Projects</h2>
-        	<section class="featured">
-                <article>
-                	<a href="#"><img src="https://dummyimage.com/510x300/c4c4c4/fff&text=Portfolio+Highlight" alt="image"></a>
-                </article>
-                
-                <article>
-                	<h3>Web Application for Task Management</h3>
-                    <h4>Challenge Statement</h4>
-                    <p>Developed a responsive and user-friendly web app for task organization and tracking using React.js and Node.js. <a href="#">Read more about the project here.</a></p> 
-                </article>
-            </section>
-            
-            <section class="projects">
-            	<article>
-                	<h3>E-commerce Website</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=E-commerce" alt="image"></a>
-                    <p><strong>Role:</strong> Full-stack Developer</p>
-                    <p><strong>Description:</strong> Designed and developed a secure online store with integrated payment gateway and inventory management.</p>
-                </article>
-                
-                <article>
-                	<h3>Portfolio Website</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=Portfolio" alt="image"></a>
-                    <p><strong>Role:</strong> Frontend Developer</p>
-                    <p><strong>Description:</strong> Built a clean, modern, and responsive portfolio to showcase design and coding projects.</p>
-                </article>
-                
-                <article>
-                	<h3>Weather App</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=Weather+App" alt="image"></a>
-                    <p><strong>Role:</strong> Backend Developer</p>
-                    <p><strong>Description:</strong> Developed an API-powered app to fetch real-time weather data and display forecasts for various locations.</p>
-                </article>
-				
-				<article>
-                	<h3>Blog Platform</h3>
-                	<a href="#"><img src="https://dummyimage.com/340x200/c4c4c4/fff&text=Blog+Platform" alt="image"></a>
-                    <p><strong>Role:</strong> Full-stack Developer</p>
-                    <p><strong>Description:</strong> Created a customizable blogging platform with user authentication and content management features.</p>
-                </article>
-            </section>
-        </div>
-    </section>
-    
-    <section id="about-contact" class="secondary">
-   		<div class="wrapper">
-        	
-			<div class="profile-photo">
-            	<img src="http://placehold.it/260?text=Your+Photo" alt="Profile Photo">
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Vandana J</h1>
+                <h2>4th Year CSE Student & Aspiring Software Developer</h2>
+                <p>Passionate about solving complex problems through code and building innovative solutions. Currently pursuing Computer Science Engineering with a keen interest in Full Stack Development, Big Data technologies and Artificial Intelligence & Machine Learning, driven by a desire to create scalable, intelligent, and real-world impactful solutions.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View My Projects
+                    </a>
+                    <a href="https://github.com/vandanaj0110" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> GitHub Profile
+                    </a>
+                </div>
             </div>
-			
-            <article>
-				<h2>About Me</h2>
-				<p>Passionate web developer specializing in creating seamless user experiences and scalable solutions. Skilled in JavaScript, CSS, and backend development.</p>
-				<h3>Skills</h3>
-				<p>Proficient in React, Node.js, and Python. Learning Docker and Kubernetes to enhance deployment strategies. Excited about cloud technologies and their applications.</p>
-			</article> 
-                
-			<article>
-				<h2>Contact Me!</h2>
-				<p>I am eager to collaborate on innovative projects. Reach out to discuss opportunities or ideas!</p>
-
-				<p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:john.doe@example.com">john.doe@example.com</a><br>
-				<i class="fa fa-phone" aria-hidden="true"></i> 987-654-3210</p>
-
-				<p class="social">
-					<a href="#"><i class="fab fa-facebook"></i></a>
-					<a href="#"><i class="fab fa-linkedin"></i></a> 
-					<a href="#"><i class="fab fa-twitter-square"></i></a>
-				</p>
-			</article>
-                   
         </div>
     </section>
-    
-    <footer class="primary">
-    	<div class="wrapper">
-        	<p class="centered">&copy; 2025 John Doe. All rights reserved.</p>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/Vandana_J_Photo.jpg" alt="Profile Picture" class="profile-img">
+                </div>
+                <div class="about-text">
+                    <h3>Hello, I'm Vandana</h3>
+                    <p>I'm a dedicated 4th year Computer Science Engineering student with a passion for software development and problem-solving. Currently exploring various domains of technology including full stack development, data structures, algorithms, and emerging tech trends.</p>
+                    <p>As I prepare to enter the professional world, I'm actively working on projects that showcase my technical skills and eagerness to learn. I believe in continuous learning and staying updated with the latest industry trends.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Go</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>AI/ML Intern</h3>
+                    <h4>SupportVectors</h4>
+                    <div class="duration">June 2025 - Present</div>
+                </div>
+                
+                <div class="experience-card">
+                    <h3>Research Intern</h3>
+                    <h4>Center of Computer Networks and Cyber Security (CCNCS)</h4>
+                    <div class="duration">June 2024 - July 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research" id="research">
+        <div class="container">
+            <h2 class="section-title">Research & Publications</h2>
+            <div class="research-content">
+                <div class="research-paper">
+                    <h3>"Revolutionising Healthcare Resource Management with IoT-Integrated Fault-Tolerant Digital Twin Technology"</h3>
+                    <p class="conference">Presented at INCOFT 2025 - International Conference</p>
+                    <p class="paper-description">This research presents a breakthrough in healthcare technology by combining IoT sensors, Digital Twin modeling, and fault-tolerant systems to transform hospital infrastructure monitoring and management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Distributed File Orchestration and Synchronization</h3>
+                    <p>A Multi-Node Data-Transfer-Framework for Linux designed as a Big Data project. Enables servers to handle multiple authenticated clients simultaneously with secure file operations including upload, download, view, and delete while ensuring stability and data integrity.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Linux</span>
+                        <span class="tech-tag">Big Data</span>
+                        <span class="tech-tag">Multi-threading</span>
+                        <span class="tech-tag">Authentication</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/vandanaj0110/Distributed-File-Orchestration-And-Synchronization"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Personalized Finance Visualizer</h3>
+                    <p>A responsive Personal Finance Visualizer built with React (Next.js) and Recharts for comprehensive data visualization. Features transaction tracking and monthly expense analysis through component-based design and efficient state management.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">Recharts</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/vandanaj0110/personal-finance-visualizer-git"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>QuizWise - Desktop Quiz System</h3>
+                    <p>A comprehensive desktop-based quiz application built using Java Swing with dual user roles. Participants can manage profiles and engage in flexible scoring quizzes, while Admins can add questions and monitor scores with historical data tracking and real-time scoreboards.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Swing</span>
+                        <span class="tech-tag">Desktop App</span>
+                        <span class="tech-tag">Database</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/vandanaj0110/QuizWise"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Vandana J. All rights reserved.</p>
         </div>
     </footer>
 
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.98)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            }
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for scroll animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Hero section is always visible
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
+    </script>
 </body>
 </html>
-
